@@ -13,7 +13,7 @@ class Member(val user: User, private val publicKey: String, private val privateK
      * @param amount Number of transfers.
      * @return <signature, transaction>
     */
-    fun transaction(to: String, amount: Long, chain: Chain): Transaction {
+    fun transaction(to: String, amount: Long): Transaction {
         val transaction = Transaction(user.address, to, amount, publicKey)
         transaction.sign(privateKey)
         return transaction
